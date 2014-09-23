@@ -10,7 +10,7 @@ My first take on Xamarin, my goal here was to map all my knowledge on building a
  
 Building for Android
 ===============
- 1. Close the source.
+ 1. Clone the source.
  2. Open solution code > AdMeshForMobFox.sln
  3. On the Android folder open the AdMeshForMobfox.Android project properties.
  4. Click Android Options
