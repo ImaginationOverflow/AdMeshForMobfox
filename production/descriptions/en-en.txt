@@ -1,0 +1,6 @@
+AdMesh for Mobfox enables you to check all your ad revenue in a simple way.
+
+
+The app lets you keep track of your Mobfox reports; you can check them  for the current day, this week, last week, this month or last month. 
+Besides the “fast” reports you can make your own with the dates you wish.
+The app also lets you check the reports for a specific app.

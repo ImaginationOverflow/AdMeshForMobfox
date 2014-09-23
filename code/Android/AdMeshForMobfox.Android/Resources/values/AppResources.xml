@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="Ads_AverageCpc">average cpc</string>
+ <string name="Ads_Clicks">clicks</string>
+ <string name="Ads_Ctr">ctr</string>
+ <string name="Ads_Ecpm">ecpm</string>
+ <string name="Ads_Impressions">impressions</string>
+ <string name="App_Close">close</string>
+ <string name="App_Email">Email</string>
+ <string name="App_Error">Error</string>
+ <string name="App_LastMonth">last month</string>
+ <string name="App_LastWeek">last week</string>
+ <string name="App_Loading">Loading</string>
+ <string name="App_Login">Login</string>
+ <string name="App_None">None</string>
+ <string name="App_Open">open</string>
+ <string name="App_Overall">overall</string>
+ <string name="App_Password">Password</string>
+ <string name="App_Refresh">refresh</string>
+ <string name="App_Reports">Reports</string>
+ <string name="App_Revenue">revenue</string>
+ <string name="App_ThisMonth">this month</string>
+ <string name="App_ThisWeek">this week</string>
+ <string name="App_Today">today</string>
+ <string name="App_Yesterday">yesterday</string>
+ <string name="Custom_Report_App">Application</string>
+ <string name="Custom_Report_EndDate">End Date</string>
+ <string name="Custom_Report_IsOverall">All time report</string>
+ <string name="Custom_Report_SeeReport">See report</string>
+ <string name="Custom_Report_StartDate">Start Date</string>
+ <string name="Error_UnknownError">An unknown error occured.</string>
+ <string name="Home_LoadingDashboard">Loading dashboard</string>
+ <string name="Home_TodaysRevenue">Revenue today</string>
+ <string name="Login_Form_Data_Incorrect">Please enter a valid email and password.</string>
+ <string name="Sidebar_About">About</string>
+ <string name="Sidebar_Applications">Applications</string>
+ <string name="Sidebar_CustomReport">Custom Report</string>
+ <string name="Sidebar_General">General</string>
+ <string name="Sidebar_Rate">Rate</string>
+ <string name="Sidebar_Reports">Reports</string>
+ <string name="Sidebar_Settings">Settings</string>
+</resources>

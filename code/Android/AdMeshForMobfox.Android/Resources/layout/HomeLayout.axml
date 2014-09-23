@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/home_ad_banner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:clickable="true"
+                android:background="@drawable/generic_btn_selector"
+                android:id="@+id/home_today_report"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/HomePanelContainerStyle">
+                    <LinearLayout
+                        style="@style/HomePanelStyle">
+                        <TextView
+                            android:text="@string/Ads_Ecpm"
+                            style="@style/HomeLabelStyle" />
+                        <TextView
+                            android:id="@+id/home_ecpm"
+                            style="@style/HomeValueStyle" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/HomePanelStyle">
+                        <TextView
+                            android:text="@string/Ads_Clicks"
+                            style="@style/HomeLabelStyle" />
+                        <TextView
+                            style="@style/HomeValueStyle"
+                            android:id="@+id/home_clicks" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/HomePanelContainerStyle">
+                    <LinearLayout
+                        style="@style/HomePanelStyle">
+                        <TextView
+                            android:text="@string/Ads_Impressions"
+                            style="@style/HomeLabelStyle" />
+                        <TextView
+                            android:id="@+id/home_impressions"
+                            style="@style/HomeValueStyle" />
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/HomePanelStyle">
+                        <TextView
+                            android:text="@string/Ads_Ctr"
+                            style="@style/HomeLabelStyle" />
+                        <TextView
+                            style="@style/HomeValueStyle"
+                            android:id="@+id/home_ctr" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/app_accent_color">
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp">
+                        <TextView
+                            android:text="@string/Home_TodaysRevenue"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:fontFamily="sans-serif-light"
+                            style="@style/HomeBaseTextStyle"
+                            android:textColor="@color/white" />
+                        <TextView
+                            android:textSize="26sp"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:id="@+id/home_today_revenue"
+                            style="@style/HomeBaseTextStyle"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/HomePanelContainerStyle">
+                <LinearLayout
+                    android:background="@drawable/generic_btn_selector"
+                    android:id="@+id/home_this_week_report"
+                    style="@style/HomePanelStyle">
+                    <TextView
+                        android:text="@string/App_ThisWeek"
+                        style="@style/HomeLabelStyle" />
+                    <TextView
+                        android:id="@+id/home_this_week_revenue"
+                        style="@style/HomeValueStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:background="@drawable/generic_btn_selector"
+                    android:id="@+id/home_this_month_report"
+                    style="@style/HomePanelStyle">
+                    <TextView
+                        android:text="@string/App_ThisMonth"
+                        style="@style/HomeLabelStyle" />
+                    <TextView
+                        style="@style/HomeValueStyle"
+                        android:id="@+id/home_this_month_revenue" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/HomePanelContainerStyle">
+                <LinearLayout
+                    android:background="@drawable/generic_btn_selector"
+                    android:id="@+id/home_last_week_report"
+                    style="@style/HomePanelStyle">
+                    <TextView
+                        android:text="@string/App_LastWeek"
+                        style="@style/HomeLabelStyle" />
+                    <TextView
+                        android:id="@+id/home_last_week_revenue"
+                        style="@style/HomeValueStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/home_last_month_report"
+                    android:background="@drawable/generic_btn_selector"
+                    style="@style/HomePanelStyle">
+                    <TextView
+                        android:text="@string/App_LastMonth"
+                        style="@style/HomeLabelStyle" />
+                    <TextView
+                        style="@style/HomeValueStyle"
+                        android:id="@+id/home_last_month_revenue" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="220dp"
+            android:layout_width="fill_parent"
+            android:gravity="center">
+            <oxyplot.xamarinandroid.PlotView
+                android:id="@+id/home_plotview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

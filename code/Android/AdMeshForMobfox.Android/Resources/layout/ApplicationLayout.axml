@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/app_layout_os"
+            android:layout_gravity="center"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginBottom="7.5dp" />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/app_app_name"
+            android:layout_marginLeft="6dp"
+            android:ellipsize="marquee"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_Overall"
+            android:id="@+id/app_overall_report" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/ReportContainerStyle">
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_Today"
+            android:id="@+id/app_today_report" />
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_Yesterday"
+            android:id="@+id/app_yesterday_report" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/ReportContainerStyle">
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_ThisWeek"
+            android:id="@+id/app_this_week_report" />
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_LastWeek"
+            android:id="@+id/app_last_week_report" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/ReportContainerStyle">
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_ThisMonth"
+            android:id="@+id/app_this_month_report" />
+        <Button
+            style="@style/AppButtonStyle"
+            android:text="@string/App_LastMonth"
+            android:id="@+id/app_last_month_report" />
+    </LinearLayout>
+</LinearLayout>

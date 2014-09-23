@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:minWidth="25px"
+    android:background="@color/app_accent_color"
+    android:minHeight="25px"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+        <ImageView
+            android:src="@drawable/splashscreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView1"
+            android:orientation="vertical"
+            android:layout_gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <TextView
+            android:text="© 2014 ImaginationOverflow"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

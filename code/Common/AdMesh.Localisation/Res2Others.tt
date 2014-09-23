@@ -1,0 +1,80 @@
+<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension="log" #>
+<#@ import namespace="System.Text" #>
+<#@ include file="Resx2AndroidTemplate.tt" #>
+<#
+
+
+var AndroidProjLocation=@"..\..\Android\AdMeshForMobfox.Android\AdMeshForMobfox.Android.csproj";
+var IOsProjLocation="";
+
+
+// Set the current directory to the .tt folder
+Directory.SetCurrentDirectory(Path.GetDirectoryName(Host.TemplateFile));
+ 
+// Create instances of the templates for iOS and Android
+Resx2AndroidTemplate r = new Resx2AndroidTemplate();
+Resx2iOSTemplate ri = new Resx2iOSTemplate();
+ 
+// Set the host to template object so that it
+// can resolve file paths
+r.Host = Host;
+//ri.Host = Host;
+ 
+// Set the output project name so that the project files
+// will be correctly updates
+r.Output.Project =AndroidProjLocation;
+//ri.Output.Project =@"..\..\notes.iPhone\notes.iPhone.csproj";
+ 
+// Set the destination for the generated
+// Android resource files
+var DestFolder = @"Resources\Values";
+ 
+// Set the file mask for the resx files to read from
+var files =Directory.GetFiles(".", "AppResources*.resx");
+ 
+foreach(var resxFile in files)
+{
+// Fix up the file name
+r.ResxFileName = resxFile.Replace(".\\","");
+      
+// For Android, we get the locale so we can
+// write to the correct folder
+string locale = r.GetLocale(resxFile);
+ 
+if (!(locale.Equals("qps-ploc",
+StringComparison.CurrentCultureIgnoreCase)))
+{
+if (!string.IsNullOrWhiteSpace(locale))
+{
+locale = "-" + locale.Replace("-", "-r");;
+}
+ 
+string AndroidStringsFolder = DestFolder + locale;
+ 
+// Set the destination filename and path and
+// transform the resource
+r.Output.File = Path.Combine(AndroidStringsFolder,
+Path.GetFileName(Path.ChangeExtension(
+r.GetNameSpace(resxFile), ".xml")));
+      
+r.Output.Encoding = Encoding.UTF8;
+r.Render();
+ 
+// iOS follows a similiar path
+//ri.ResxFileName = r.ResxFileName;
+ 
+// Don't need the locale, just the language
+//var lang = ri.GetLanguage(ri.ResxFileName);
+/*/ 
+if (lang != null) {
+ri.Output.File = Path.Combine(lang + ".lproj","Localizable.strings");
+      
+ri.Output.Encoding = Encoding.UTF8;
+ri.Render();
+
+}
+//*/
+}
+}
+#>

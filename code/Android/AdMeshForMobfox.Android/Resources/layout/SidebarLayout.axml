@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <!--General-->
+        <TextView
+            android:text="@string/Sidebar_General"
+            style="@style/SidebarHeaderStyle" />
+        <View
+            style="@style/HeaderHorizontalLine" />
+        <LinearLayout
+            style="@style/OptionContainerStyle"
+            android:id="@+id/sidebar_custom_report_btn">
+            <TextView
+                android:text="@string/Sidebar_CustomReport"
+                style="@style/SidebarOptionStyle" />
+            <View
+                style="@style/HorizontalLine" />
+        </LinearLayout>
+    <!--<LinearLayout
+            android:id="@+id/sidebar_settings_btn"
+            style="@style/OptionContainerStyle">
+            <TextView
+                android:text="@string/Sidebar_Settings"
+                style="@style/SidebarOptionStyle" />
+            <View
+                style="@style/HorizontalLine" />
+        </LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/sidebar_rate_btn"
+            style="@style/OptionContainerStyle">
+            <TextView
+                android:text="@string/Sidebar_Rate"
+                style="@style/SidebarOptionStyle" />
+            <View
+                style="@style/HorizontalLine" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sidebar_about_btn"
+            style="@style/OptionContainerStyle">
+            <TextView
+                android:text="@string/Sidebar_About"
+                style="@style/SidebarOptionStyle" />
+            <View
+                style="@style/HorizontalLine" />
+        </LinearLayout>
+    <!--Apps-->
+        <TextView
+            android:text="@string/Sidebar_Applications"
+            style="@style/SidebarHeaderStyle" />
+        <View
+            style="@style/HeaderHorizontalLine" />
+        <ListView
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:id="@+id/sidebar_app_list"
+            android:divider="@color/app_gray_color"
+            android:dividerHeight="0.5dp"
+            android:layout_marginLeft="12dp" />
+    <!--Reports-->
+    </LinearLayout>
+</ScrollView>

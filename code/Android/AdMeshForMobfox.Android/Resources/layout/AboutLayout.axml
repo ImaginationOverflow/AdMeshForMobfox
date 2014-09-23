@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Developer"
+        style="@style/SidebarHeaderStyle" />
+    <View
+        style="@style/HeaderHorizontalLine" />
+    <TextView
+        android:textStyle="bold"
+        android:text="Diogo Cardoso"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:layout_marginTop="0dp"
+        android:text="Twitter: https://twitter.com/DVD_PT"
+        android:autoLink="web"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:text="Publisher"
+        style="@style/SidebarHeaderStyle" />
+    <View
+        style="@style/HeaderHorizontalLine" />
+    <TextView
+        android:textStyle="bold"
+        android:text="ImaginationOverflow"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:layout_marginTop="0dp"
+        android:text="Twitter: https://twitter.com/ImaginationOver"
+        android:autoLink="web"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:layout_marginTop="0dp"
+        android:text="Facebook: https://www.facebook.com/pages/ImaginationOverflow/304473572958941"
+        android:autoLink="web"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:layout_marginTop="0dp"
+        android:text="Contact: imaginationoverflowsoftware@gmail.com"
+        android:autoLink="email"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:text="Source"
+        style="@style/SidebarHeaderStyle" />
+    <View
+        style="@style/HeaderHorizontalLine" />
+    <TextView
+        android:layout_marginTop="0dp"
+        android:text="GitHub: https://github.com/ImaginationOverflow/AdMeshForMobfox"
+        android:autoLink="web"
+        style="@style/SidebarOptionStyle" />
+    <TextView
+        android:text="Built with Xamarin and OxyPlot"
+        style="@style/SidebarOptionStyle" />
+</LinearLayout>

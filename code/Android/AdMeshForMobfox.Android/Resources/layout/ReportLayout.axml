@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        style="@style/ReportContainerStyle">
+        <LinearLayout
+            android:background="@color/app_accent_color_transp"
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/App_Revenue"
+                style="@style/HomeLabelStyle" />
+            <TextView
+                android:id="@+id/report_revenue"
+                style="@style/HomeValueStyle" />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/Ads_Impressions"
+                style="@style/HomeLabelStyle" />
+            <TextView
+                android:id="@+id/report_impressions"
+                style="@style/HomeValueStyle" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/ReportContainerStyle">
+        <LinearLayout
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/Ads_Ctr"
+                style="@style/HomeLabelStyle" />
+            <TextView
+                android:id="@+id/report_ctr"
+                style="@style/HomeValueStyle" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="@color/app_accent_color_transp"
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/Ads_Ecpm"
+                style="@style/HomeLabelStyle" />
+            <TextView
+                android:id="@+id/report_ecpm"
+                style="@style/HomeValueStyle" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/ReportContainerStyle">
+        <LinearLayout
+            android:background="@color/app_accent_color_transp"
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/Ads_AverageCpc"
+                style="@style/HomeLabelStyle" />
+            <TextView
+                android:id="@+id/report_cpc"
+                style="@style/HomeValueStyle" />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/Ads_Clicks"
+                style="@style/HomeLabelStyle" />
+            <TextView
+                android:id="@+id/report_clicks"
+                style="@style/HomeValueStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="300dp"
+    android:minHeight="300dp">
+    <TextView
+        android:text="@string/Custom_Report_App"
+        style="@style/CustomReportLabelStyle" />
+    <Spinner
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_report_app" />
+    <LinearLayout
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@drawable/generic_btn_selector"
+            android:id="@+id/create_report_start_date_container"
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:text="@string/Custom_Report_StartDate"
+                style="@style/CustomReportLabelStyle" />
+            <TextView
+                android:id="@+id/create_report_start_date"
+                style="@style/CustomReportValueStyle" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/generic_btn_selector"
+            android:id="@+id/create_report_end_date_container"
+            style="@style/ReportItemContainerStyle">
+            <TextView
+                android:clickable="true"
+                android:text="@string/Custom_Report_EndDate"
+                style="@style/CustomReportLabelStyle" />
+            <TextView
+                android:id="@+id/create_report_end_date"
+                style="@style/CustomReportValueStyle" />
+        </LinearLayout>
+    </LinearLayout>
+    <CheckBox
+        android:id="@+id/create_report_checkbox"
+        android:layout_marginTop="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Custom_Report_IsOverall" />
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <Button
+            style="@style/ButtonAppTheme"
+            android:textColor="@color/white"
+            android:layout_gravity="bottom"
+            android:layout_weight="0"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="6dp"
+            android:text="@string/Custom_Report_SeeReport"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/create_report_btn" />
+    </LinearLayout>
+</LinearLayout>
