@@ -3,7 +3,7 @@ AdMesh For Mobfox
 My first take on Xamarin, my goal here was to map all my knowledge on building apps for Windows Phone to Xamarin. Right now the app only targets Android but soon it will target Windows Phone and iOS.
 
 **Download links:**
- - Play Store
+ - [Play Store](https://play.google.com/store/apps/details?id=com.imaginationoverflow.admesh.mobfox)
  - Windows Phone Store (coming very soon)
 
 
