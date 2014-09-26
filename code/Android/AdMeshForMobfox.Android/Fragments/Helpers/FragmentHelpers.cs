@@ -14,16 +14,6 @@ namespace AdMeshForMobfox.Android.Fragments.Helpers
 {
     static class FragmentHelpers
     {
-        public static string ToPrettyString(this MobfoxMonetaryValue value)
-        {
-            return string.Format("${0}", value.Amount.ToString("N"));
-        }
-
-        public static string ToPercentagePrettyString(this double percentage)
-        {
-            return string.Format("{0} %", percentage);
-        }
-
         public static int GetPlatformImageId(this MobfoxApplication element)
         {
             switch (element.Type)

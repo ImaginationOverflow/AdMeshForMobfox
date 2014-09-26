@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AdMesh.Common;
 using AdMesh.ViewModel;
 using AdMeshForMobfox.Android.DumbBinding;
 using AdMeshForMobfox.Android.Fragments.Helpers;

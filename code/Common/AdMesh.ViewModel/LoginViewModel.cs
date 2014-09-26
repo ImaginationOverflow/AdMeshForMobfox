@@ -21,7 +21,7 @@ namespace AdMesh.ViewModel
         /// </summary>
         public const string EmailPropertyName = "Email";
 
-        private string _email = "email";
+        private string _email = string.Empty;
 
         /// <summary>
         /// Sets and gets the Email property.
@@ -101,7 +101,6 @@ namespace AdMesh.ViewModel
                                                   await MessageBoxService.ShowAsync(AppResources.Login_Form_Data_Incorrect,AppResources.App_Error);
                                                   return;
                                               }
-
                                               await AccountController.LoginAsync(Email, Password);
                                               _navigationService.GoToHome();
 

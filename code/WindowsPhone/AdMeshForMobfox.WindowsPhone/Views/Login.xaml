@@ -1,0 +1,60 @@
+﻿<local:BasePage
+    x:Class="AdMeshForMobfox.WindowsPhone.Views.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdMeshForMobfox.WindowsPhone.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{StaticResource AccentBrush}"
+    DataContext="{Binding Login,Source={StaticResource Locator}}"
+    >
+
+    <Grid x:Name="LayoutRoot" Margin="12 0 12 0">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image Source="../Assets/Images/mobfoxlogo.png" Stretch="Uniform" Margin="60"/>
+        <Grid Grid.Row="1" Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+
+            <StackPanel Grid.Row="0" >
+                <TextBlock  Text= "{Binding Path=Strings.App_Email, Source={StaticResource Strings}, Converter={StaticResource ToLowerConverter}}" Style="{StaticResource LabelTextStyle}"/>
+                <TextBox Text="{Binding Email, Mode=TwoWay}" Margin="0 3 0 0" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="0 12 0 0" >
+                <TextBlock  Text= "{Binding Path=Strings.App_Password, Source={StaticResource Strings}, Converter={StaticResource ToLowerConverter}}" Style="{StaticResource LabelTextStyle}"/>
+                <PasswordBox Password="{Binding Password, Mode=TwoWay}" Margin="0 3 0 0" />
+            </StackPanel>
+
+            <Button
+                Grid.Row="2"
+                    BorderThickness="0"
+                HorizontalContentAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                    Command="{Binding LoginCommand}"
+                    Background="{StaticResource CtaBrush}">
+                <Grid HorizontalAlignment="Center" Margin="12">
+                    <TextBlock Text= "{Binding Path=Strings.App_Login, Source={StaticResource Strings}, Converter={StaticResource ToLowerConverter}}" 
+                        Foreground="White" FontWeight="Light" FontFamily="{StaticResource PhoneFontFamilyLight}"/>
+                </Grid>
+            </Button>
+        </Grid>
+    </Grid>
+</local:BasePage>

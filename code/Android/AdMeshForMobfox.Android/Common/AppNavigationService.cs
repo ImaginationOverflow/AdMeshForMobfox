@@ -15,7 +15,7 @@ using IOToolkit.ObjectModel;
 
 namespace AdMeshForMobfox.Android.Common
 {
-    public class AppNavigationService : IAppNavigationService
+    public class AppNavigationService : AppNavigationServiceBase
     {
         private readonly Activity _mainActivity;
         private Fragment _reportFragment;
@@ -26,124 +26,42 @@ namespace AdMeshForMobfox.Android.Common
             _mainActivity = mainActivity;
         }
 
-        public void GoToLogin()
+        public override void GoToLogin()
         {
             _mainActivity.NavigateToFragment(new LoginFragment(), false);
             _mainActivity.ActionBar.Hide();
 
         }
 
-        public void GoToHome()
+        public override void GoToHome()
         {
             _mainActivity.NavigateToFragment(new HomeFragment(), false);
             _mainActivity.ActionBar.Show();
         }
 
-        public void GoToReportDetails()
+        public override void GoToReportDetails()
         {
             _mainActivity.NavigateToFragment(_reportFragment ?? (_reportFragment = new ReportFragment()));
         }
 
-        public void GoToApplication()
+        public override void GoToApplication()
         {
             _mainActivity.NavigateToFragment(_appFragment ?? (_appFragment = new ApplicationFragment()));
 
         }
 
-        public void GoToCustomReport()
+        public override void GoToCustomReport()
         {
             new CreateReportFragment().Show(_mainActivity.FragmentManager, typeof(CreateReportFragment).Name);
         }
 
-        public void GoToAbout()
+        public override void GoToAbout()
         {
             _mainActivity.NavigateToFragment(new AboutFragment());
         }
 
 
-        private ICommand _goToLoginCommand;
 
-        /// <summary>
-        /// Gets the MyCommand.
-        /// </summary>
-        public ICommand GoToLoginCommand
-        {
-            get
-            {
-                return _goToLoginCommand
-                    ?? (_goToLoginCommand = new RelayCommand(GoToLogin));
-            }
-        }
-
-        private ICommand _goToHomeCommand;
-
-        /// <summary>
-        /// Gets the GoToHomeCommand.
-        /// </summary>
-        public ICommand GoToHomeCommand
-        {
-            get
-            {
-                return _goToHomeCommand
-                    ?? (_goToHomeCommand = new RelayCommand(GoToHome));
-            }
-        }
-
-        private ICommand _goToReportDetailsCommand;
-
-        /// <summary>
-        /// Gets the GoToReportDetailsCommand.
-        /// </summary>
-        public ICommand GoToReportDetailsCommand
-        {
-            get
-            {
-                return _goToReportDetailsCommand
-                    ?? (_goToReportDetailsCommand = new RelayCommand(GoToReportDetails));
-            }
-        }
-
-        private ICommand _goToAppCommand;
-
-        /// <summary>
-        /// Gets the GoToApplicationCommand.
-        /// </summary>
-        public ICommand GoToApplicationCommand
-        {
-            get
-            {
-                return _goToAppCommand
-                    ?? (_goToAppCommand = new RelayCommand(GoToApplication));
-            }
-        }
-
-        private ICommand _navToCreateRepoCommand;
-
-        /// <summary>
-        /// Gets the GoToCustomReportCommand.
-        /// </summary>
-        public ICommand GoToCustomReportCommand
-        {
-            get
-            {
-                return _navToCreateRepoCommand
-                    ?? (_navToCreateRepoCommand = new RelayCommand(GoToCustomReport));
-            }
-        }
-
-        private ICommand _navigateToAboutCommand;
-
-        /// <summary>
-        /// Gets the GoToAboutCommand.
-        /// </summary>
-        public ICommand GoToAboutCommand
-        {
-            get
-            {
-                return _navigateToAboutCommand
-                    ?? (_navigateToAboutCommand = new RelayCommand(GoToAbout));
-            }
-        }
     }
 
     public static class FragmentExtensions

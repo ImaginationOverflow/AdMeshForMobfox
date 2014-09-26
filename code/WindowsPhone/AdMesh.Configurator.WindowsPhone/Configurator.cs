@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace AdMesh.Configurator.Android
+namespace AdMesh.Configurator.WindowsPhone
 {
     public class Configurator
     {

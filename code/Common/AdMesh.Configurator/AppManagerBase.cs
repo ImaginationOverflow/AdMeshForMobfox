@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using AdMesh.Common;
 using AdMesh.Controllers;
 using AdMesh.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
 using IOToolkit.Controllers;
+using IOToolkit.Helpers;
 using IOToolkit.Services;
 using IOToolkit.Storage;
 
@@ -42,6 +44,8 @@ namespace AdMesh.Configurator
             catch (Exception e)
             {
 #if DEBUG
+                if(Debugger.IsAttached)
+                    Debugger.Break();
                 SimpleIoc.Default.GetInstance<IMessageBoxService>().ShowAsync(e.ToString(), "Loading");
                 return;
 #endif
@@ -109,17 +113,22 @@ namespace AdMesh.Configurator
                 return;
             }
 
-            
+
 
             NavigationService.GoToLogin();
 
         }
 
-        protected abstract Task PlatformSetup();
+        protected virtual Task PlatformSetup()
+        {
+            SimpleIoc.Default.Reset();
+            CommonConfigurator.Configure();
+            return TaskHelpers.FinishTask();
+        }
 
         public void OnUnhandledException(Exception e)
         {
-           
+
         }
 
     }

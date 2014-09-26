@@ -28,9 +28,9 @@ namespace AdMeshForMobfox.Android.Common
             _mainActivity = mainActivity;
         }
 
-        protected override Task PlatformSetup()
+        protected override async Task PlatformSetup()
         {
-            SimpleIoc.Default.Reset();
+            await base.PlatformSetup();
             SimpleIoc.Default.Register<Context>(() => _mainActivity);
             SimpleIoc.Default.Register(
                 () =>
@@ -41,8 +41,6 @@ namespace AdMeshForMobfox.Android.Common
                     });
             SimpleIoc.Default.Register<IAppNavigationService>(() => new AppNavigationService(_mainActivity));
             Configurator.Configure();
-
-            return TaskHelpers.FinishTask();
         }
 
         public override void PreInitialize()
