@@ -161,6 +161,9 @@
     <Reference Include="WinRTXamlToolkit">
       <HintPath>..\..\packages\WinRTXamlToolkit.WindowsPhone.1.7.3.0\lib\wpa\WinRTXamlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="WinRTXamlToolkit.Controls.DataVisualization">
+      <HintPath>..\..\packages\WinRTXamlToolkit.Controls.DataVisualization.WindowsPhone.1.7.3.0\lib\wpa\WinRTXamlToolkit.Controls.DataVisualization.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\AdMesh.Common\AdMesh.Common.csproj">
