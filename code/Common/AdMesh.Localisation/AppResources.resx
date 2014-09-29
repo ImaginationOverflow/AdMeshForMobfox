@@ -171,6 +171,9 @@
   <data name="App_Refresh" xml:space="preserve">
     <value>refresh</value>
   </data>
+  <data name="App_Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
   <data name="App_Reports" xml:space="preserve">
     <value>Reports</value>
   </data>

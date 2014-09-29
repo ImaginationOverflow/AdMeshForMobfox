@@ -28,7 +28,7 @@ namespace AdMeshForMobfox.WindowsPhone.Views
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        public Login()
+        public Login() : base(true)
         {
             this.InitializeComponent();
 

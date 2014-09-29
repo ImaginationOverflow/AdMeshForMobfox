@@ -9,9 +9,76 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:primitives1="using:IOToolkit.WinRt.Ui.Primitives"
     xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+
     mc:Ignorable="d"
     DataContext="{Binding Home, Source={StaticResource Locator}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <views:BasePage.Resources>
+        <Thickness x:Key="PivotPortraitThemePadding">19,38,0,0</Thickness>
+        <Thickness x:Key="PivotLandscapeThemePadding">19,25,0,0</Thickness>
+        <Style x:Key="HeaderWithAccentStyle" TargetType="Pivot">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Foreground" Value="{ThemeResource PhoneForegroundBrush}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <Grid/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Pivot">
+                        <Grid x:Name="RootElement" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Orientation">
+                                    <VisualState x:Name="Portrait">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="TitleContentControl">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource PivotPortraitThemePadding}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Landscape">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="TitleContentControl">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource PivotLandscapeThemePadding}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid Background="{StaticResource AccentBrush}" ></Grid>
+                            <ContentControl Grid.Row="0"  Background="{StaticResource AccentBrush}"  x:Name="TitleContentControl" HorizontalContentAlignment="Stretch" ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" />
+
+                            <ScrollViewer x:Name="ScrollViewer" HorizontalSnapPointsAlignment="Center" HorizontalSnapPointsType="MandatorySingle" HorizontalScrollBarVisibility="Hidden" Margin="{TemplateBinding Padding}" Grid.Row="1" Template="{StaticResource ScrollViewerScrollBarlessTemplate}" VerticalSnapPointsType="None" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" VerticalContentAlignment="Stretch" ZoomMode="Disabled">
+                                <PivotPanel x:Name="Panel" VerticalAlignment="Stretch">
+                                    <PivotHeaderPanel   x:Name="Header"  Background="{TemplateBinding BorderBrush}">
+                                        <PivotHeaderPanel.RenderTransform>
+                                            <CompositeTransform  x:Name="HeaderTranslateTransform" TranslateX="0"/>
+                                        </PivotHeaderPanel.RenderTransform>
+                                    </PivotHeaderPanel>
+                                    <ItemsPresenter x:Name="PivotItemPresenter">
+                                        <ItemsPresenter.RenderTransform>
+                                            <TranslateTransform x:Name="ItemsPresenterTranslateTransform" X="0"/>
+                                        </ItemsPresenter.RenderTransform>
+                                    </ItemsPresenter>
+                                </PivotPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </views:BasePage.Resources>
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -22,135 +89,205 @@
         </TransitionCollection>
     </Page.Transitions>
 
-    <Grid>
-        <Pivot  x:Uid="Pivot" Title="AdMesh for Mobfox" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True" Margin="0,12,0,0">
-            <!--Pivot item one-->
+    <Grid >
+        <Pivot  
+            RequestedTheme="Dark"
+                BorderBrush="{StaticResource AccentBrush}"
+            Title="AdMesh for Mobfox" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True" Margin="0,12,0,0" Style="{StaticResource HeaderWithAccentStyle}">
+
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="40"/>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+
             <PivotItem
                 Header= "{Binding Path=Strings.Sidebar_General, Source={StaticResource Strings}}"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
-                <Grid >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.Resources>
-                        <Style TargetType="StackPanel">
-                            <Setter Property="HorizontalAlignment" Value="center"></Setter>
-                            <Setter Property="Margin" Value="0 0 0 12"></Setter>
-                        </Style>
-                    </Grid.Resources>
-                    <Grid Grid.Row="0" >
+                <ScrollViewer Margin="-20 -20 -20 0"  VerticalScrollBarVisibility="Auto">
+                    <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition MinHeight="300" Height="auto"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                       
-                        <StackPanel  Grid.Row="0" Grid.Column="0">
-                            <TextBlock Text= "{Binding Path=Strings.Ads_Ecpm, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Ecpm, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
+                        <Grid.Resources>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="HorizontalAlignment" Value="center"></Setter>
+                                <Setter Property="Margin" Value="0 0 0 12"></Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid Tapped="Vibrate" Grid.Row="0" primitives1:Tilt.IsTiltEnabled="True">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Row="0" Grid.Column="1">
-                            <TextBlock Text= "{Binding Path=Strings.Ads_Clicks, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Clicks}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="Tapped">
+                                    <core:InvokeCommandAction
+                                        Command="{Binding ShowReportDetailsCommand, Mode=OneWay}"
+                                        CommandParameter="{Binding ReportsController.DashboardInfo.TodaysReport}" />
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
 
-                        <StackPanel  Grid.Row="1" Grid.Column="0">
-                            <TextBlock Text= "{Binding Path=Strings.Ads_Impressions, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Impressions}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="1" Grid.Column="1">
-                            <TextBlock Text= "{Binding Path=Strings.Ads_Ctr, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Ctr, Converter={StaticResource DoubleToPercentageConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
-                        
-                        <Grid Margin="-20 0 -20 0" Grid.Row="2" Grid.ColumnSpan="2" Background="{StaticResource AccentBrush}">
-                            <StackPanel Margin="6">
-                                <TextBlock Text= "{Binding Path=Strings.Home_TodaysRevenue, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}" Foreground="White"/>
-                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}" FontSize="30" Foreground="White"/>
+                            <StackPanel  Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text= "{Binding Path=Strings.Ads_Ecpm, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Ecpm, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
                             </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text= "{Binding Path=Strings.Ads_Clicks, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Clicks}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel  Grid.Row="1" Grid.Column="0">
+                                <TextBlock Text= "{Binding Path=Strings.Ads_Impressions, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Impressions}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Grid.Column="1">
+                                <TextBlock Text= "{Binding Path=Strings.Ads_Ctr, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Ctr, Converter={StaticResource DoubleToPercentageConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            </StackPanel>
+
+                            <Grid Margin="-20 0 -20 0" Grid.Row="2" Grid.ColumnSpan="2" Background="{StaticResource AccentBrush}">
+                                <StackPanel Margin="6">
+                                    <TextBlock Text= "{Binding Path=Strings.Home_TodaysRevenue, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}" Foreground="White"/>
+                                    <TextBlock Text= "{Binding ReportsController.DashboardInfo.TodaysReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}" FontSize="30" Foreground="White"/>
+                                </StackPanel>
+                            </Grid>
+
                         </Grid>
 
-                    </Grid>
-                   
-                    <Grid Grid.Row="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <StackPanel  Grid.Row="0" Grid.Column="0">
-                            <TextBlock Text= "{Binding Path=Strings.App_ThisWeek, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.ThisWeekReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
+                            <StackPanel Tapped="Vibrate"  Grid.Row="0" Grid.Column="0" primitives1:Tilt.IsTiltEnabled="True">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction
+                                        Command="{Binding ShowReportDetailsCommand, Mode=OneWay}"
+                                        CommandParameter="{Binding ReportsController.DashboardInfo.ThisWeekReport}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <TextBlock Text= "{Binding Path=Strings.App_ThisWeek, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.ThisWeekReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            </StackPanel>
 
-                        <StackPanel Grid.Row="0" Grid.Column="1">
-                            <TextBlock Text= "{Binding Path=Strings.App_ThisMonth, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.ThisMonthReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            <StackPanel Tapped="Vibrate" Grid.Row="0" Grid.Column="1" primitives1:Tilt.IsTiltEnabled="True">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction
+                                        Command="{Binding ShowReportDetailsCommand, Mode=OneWay}"
+                                        CommandParameter="{Binding ReportsController.DashboardInfo.ThisMonthReport}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <TextBlock Text= "{Binding Path=Strings.App_ThisMonth, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.ThisMonthReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
 
-                        </StackPanel>
+                            </StackPanel>
 
-                        <StackPanel  Grid.Row="1" Grid.Column="0">
-                            <TextBlock Text= "{Binding Path=Strings.App_LastWeek, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.LastWeekReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
+                            <StackPanel Tapped="Vibrate"  Grid.Row="1" Grid.Column="0" primitives1:Tilt.IsTiltEnabled="True">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction
+                                        Command="{Binding ShowReportDetailsCommand, Mode=OneWay}"
+                                        CommandParameter="{Binding ReportsController.DashboardInfo.LastWeekReport}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <TextBlock Text= "{Binding Path=Strings.App_LastWeek, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.LastWeekReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            </StackPanel>
 
-                        <StackPanel Grid.Row="1" Grid.Column="1">
-                            <TextBlock Text= "{Binding Path=Strings.App_LastMonth, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
-                            <TextBlock Text= "{Binding ReportsController.DashboardInfo.LastMonthReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
-                        </StackPanel>
+                            <StackPanel Tapped="Vibrate" Grid.Row="1" Grid.Column="1" primitives1:Tilt.IsTiltEnabled="True">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction
+                                        Command="{Binding ShowReportDetailsCommand, Mode=OneWay}"
+                                        CommandParameter="{Binding ReportsController.DashboardInfo.LastMonthReport}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <TextBlock Text= "{Binding Path=Strings.App_LastMonth, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                                <TextBlock Text= "{Binding ReportsController.DashboardInfo.LastMonthReport.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                            </StackPanel>
 
 
-                    </Grid>
+                        </Grid>
 
-                    <Grid Grid.Row="2">
-                        <charting:Chart
+                        <Grid Grid.Row="2">
+                            <charting:Chart
+                                
                             x:Name="AreaChart"
-                            Margin="0,0"
+                            Margin="12 0 12 12"
+                            Foreground="Black"
+                            RequestedTheme="Dark"
                             >
-                            <charting:Chart.LegendStyle>
-                                <Style TargetType="FrameworkElement">
-                                    <Setter Property="Width" Value="0" />
-                                </Style>
-                            </charting:Chart.LegendStyle>
-                            <charting:Chart.Axes>
-                                <charting:DateTimeAxis    IntervalType="Days" Orientation="X">
-                                    <charting:DateTimeAxis.AxisLabelStyle>
-                                        <Style TargetType="charting:DateTimeAxisLabel">
-                                            <Setter Property="DaysIntervalStringFormat" Value="{}{0:MMM dd}"/>
-                                        </Style>
-                                    </charting:DateTimeAxis.AxisLabelStyle>
-                                </charting:DateTimeAxis>
-                            </charting:Chart.Axes>
-                            <charting:AreaSeries
+                                <charting:Chart.LegendStyle>
+                                    <Style TargetType="FrameworkElement">
+                                        <Setter Property="Width" Value="0" />
+                                    </Style>
+                                </charting:Chart.LegendStyle>
+                                <charting:Chart.Axes>
+                                    <charting:DateTimeAxis    IntervalType="Days" Orientation="X">
+                                        <charting:DateTimeAxis.AxisLabelStyle>
+                                            <Style TargetType="charting:DateTimeAxisLabel">
+                                                <Setter Property="DaysIntervalStringFormat" Value="{}{0:MMM dd}"/>
+                                            </Style>
+                                        </charting:DateTimeAxis.AxisLabelStyle>
+                                    </charting:DateTimeAxis>
+                                </charting:Chart.Axes>
+                                <charting:AreaSeries
                                 ItemsSource="{Binding ReportsController.DashboardInfo.LastWeekDailyReports}"
                                 IndependentValueBinding="{Binding StartTime}"
                                 DependentValueBinding="{Binding Earnings.Amount}"
                                
                                >
-                               
-                            </charting:AreaSeries>
-                        </charting:Chart>
+
+                                </charting:AreaSeries>
+                            </charting:Chart>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </ScrollViewer>
             </PivotItem>
 
             <!--Pivot item two-->
             <PivotItem
+      
                 Header= "{Binding Path=Strings.Sidebar_Applications, Source={StaticResource Strings}}"
                 >
-                <!--Double line list no text wrapping-->
+                <ListView ItemsSource="{Binding ApplicationsController.Applications}" SelectionChanged="OnItemClicked">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Background="{StaticResource AccentBrush}">
+                                    <Image Source="{Binding Converter={StaticResource MobfoxAppToImageConverter}}"  Stretch="UniformToFill"/>
+                                </Grid>
+
+                                <Grid Margin="12 0 0 0" VerticalAlignment="Center" Grid.Column="1">
+                                    <TextBlock Text="{Binding Name}" Foreground="Black" TextWrapping="Wrap" Style="{StaticResource ReportValueTextblockStyle}"/>
+                                </Grid>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
             </PivotItem>
         </Pivot>
@@ -159,6 +296,12 @@
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource AccentBrush}" Foreground="White">
             <AppBarButton x:Name="AddAppBarButton" Label= "{Binding Path=Strings.App_Refresh, Source={StaticResource Strings}}" Icon="Refresh"  Command="{Binding RefreshCommand}" />
+            <AppBarButton x:Name="AddAppBasdarButton"  Label= "{Binding Path=Strings.Sidebar_CustomReport, Source={StaticResource Strings}}"  Click="AddAppBasdarButton_OnClick">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/CreateReport.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label= "{Binding Path=Strings.App_About, Source={StaticResource Strings}}" Command="{Binding AppNavigationService.GoToAboutCommand}" />
                 <AppBarButton Label= "{Binding Path=Strings.Sidebar_Rate, Source={StaticResource Strings}}" />

@@ -7,13 +7,16 @@
     xmlns:localisation="using:AdMesh.Localisation"
     xmlns:converters="using:IOToolkit.Ui.Converters"
     xmlns:converters1="using:AdMeshForMobfox.WindowsPhone.Views.Converters"
-
+     
     RequestedTheme="Light">
     
     <Application.Resources>
         <Color x:Key="AccentColor">#15518d</Color>
         <Color x:Key="CtaColor">#ff4d40</Color>
         <Color x:Key="GrayColor">#b0b0b0</Color>
+        <Color x:Key="SystemColorControlAccentColor">#15518d</Color>
+
+        <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{StaticResource AccentColor}"/>
 
 
 
@@ -28,6 +31,7 @@
         <converters:ToLowerConverter x:Key="ToLowerConverter" />
         <converters1:DoubleToPercentageConverter x:Key="DoubleToPercentageConverter" />
         <converters1:MonetaryValueToStringConverter x:Key="MonetaryValueToStringConverter" />
+        <converters1:MobfoxAppToImageConverter x:Key="MobfoxAppToImageConverter" />
 
 
         <Style x:Key="LabelTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
@@ -45,6 +49,7 @@
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="SemiLight"/>
             <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Foreground" Value="Black"/>
         </Style>
     </Application.Resources>
 

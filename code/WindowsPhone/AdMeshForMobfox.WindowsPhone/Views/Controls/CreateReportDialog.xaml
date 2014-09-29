@@ -1,0 +1,32 @@
+<ContentDialog
+    x:Class="AdMeshForMobfox.WindowsPhone.Views.Controls.CreateReportDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdMeshForMobfox.WindowsPhone.Views.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title= "{Binding Path=Strings.Sidebar_CustomReport, Source={StaticResource Strings}}"
+    PrimaryButtonText= "ok"
+    SecondaryButtonText="cancel"
+    RequestedTheme="Light"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    DataContext="{Binding Report,Source={StaticResource Locator}}"
+    >
+
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <TextBlock Foreground="Black" Text= "{Binding Path=Strings.Custom_Report_App, Source={StaticResource Strings}}"/>
+        <ComboBox SelectedItem="{Binding Application, Mode=TwoWay}" Background="Transparent" ItemsSource="{Binding ApplicationsController.Applications}">
+            <ComboBox.ItemTemplate><DataTemplate>
+                <TextBlock Foreground="Black" Text="{Binding}"></TextBlock>
+            </DataTemplate></ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Foreground="Black" Text= "{Binding Path=Strings.Custom_Report_StartDate, Source={StaticResource Strings}}"/>
+        <DatePicker Date="{Binding StartDate, Mode=TwoWay }"/>
+        <TextBlock Foreground="Black" Text= "{Binding Path=Strings.Custom_Report_EndDate, Source={StaticResource Strings}}"/>
+        <DatePicker Date="{Binding EndDate, Mode=TwoWay }"/>
+
+        <CheckBox IsChecked="{Binding IsOverall, Mode=TwoWay}" Foreground="Black" Content= "{Binding Path=Strings.Custom_Report_IsOverall, Source={StaticResource Strings}}"></CheckBox>
+    </StackPanel>
+</ContentDialog>

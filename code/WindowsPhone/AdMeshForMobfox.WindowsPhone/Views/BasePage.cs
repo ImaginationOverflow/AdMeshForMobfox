@@ -17,12 +17,12 @@ namespace AdMeshForMobfox.WindowsPhone.Views
 {
     public class BasePage : Page
     {
-        private readonly Color _barBackgroundColor;
+        private readonly Color _barBackgroundColor = Colors.Transparent;
         private readonly Color _barForegroundColor = Color.FromArgb(255, 254, 255, 255);
         private StatusBar _bar;
 
         public BasePage()
-            : this(Color.FromArgb(255, 254, 255, 255))
+            : this(Colors.Transparent)
         {
         }
 

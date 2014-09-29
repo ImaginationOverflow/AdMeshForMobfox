@@ -1,38 +1,40 @@
-﻿using System;
-using System.Globalization;
-using Windows.ApplicationModel.Resources;
-using Windows.Phone.Devices.Notification;
-using Windows.UI.Popups;
+﻿using AdMeshForMobfox.WindowsPhone.Common;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using AdMesh.ViewModel;
-using AdMeshForMobfox.WindowsPhone.Common;
 
-// The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
-using AdMeshForMobfox.WindowsPhone.Views.Controls;
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
 namespace AdMeshForMobfox.WindowsPhone.Views
 {
-    public sealed partial class Home : BasePage
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class Report : BasePage
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        public Home()
-            : base(true)
+        public Report() : base(true)
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-            Loaded += Home_Loaded;
-        }
-
-        void Home_Loaded(object sender, RoutedEventArgs e)
-        {
         }
 
         /// <summary>
@@ -96,8 +98,6 @@ namespace AdMeshForMobfox.WindowsPhone.Views
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.NavigationMode != NavigationMode.Back)
-                GetViewModel<HomeViewModel>().RefreshCommand.Execute(null);
             base.OnNavigatedTo(e);
             this.navigationHelper.OnNavigatedTo(e);
         }
@@ -105,31 +105,8 @@ namespace AdMeshForMobfox.WindowsPhone.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedFrom(e);
-
         }
 
         #endregion
-
-        private void Vibrate(object sender, TappedRoutedEventArgs e)
-        {
-            VibrationDevice.GetDefault().Vibrate(TimeSpan.FromMilliseconds(50));
-        }
-
-        private void OnItemClicked(object sender, SelectionChangedEventArgs e)
-        {
-            var lv = sender as ListView;
-            if(lv.SelectedIndex == -1)
-                return;
-
-            GetViewModel<HomeViewModel>().NavigateToApplicationCommand.Execute(lv.SelectedItem);
-
-            lv.SelectedIndex = -1;
-
-        }
-
-        private async void AddAppBasdarButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            new CreateReportDialog().ShowAsync();
-        }
     }
 }

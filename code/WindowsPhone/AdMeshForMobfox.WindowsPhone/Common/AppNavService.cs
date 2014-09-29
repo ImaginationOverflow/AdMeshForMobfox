@@ -30,12 +30,13 @@ namespace AdMeshForMobfox.WindowsPhone.Common
 
         public override void GoToReportDetails()
         {
-            throw new NotImplementedException();
+            Frame.Navigate(typeof(Report));
         }
 
         public override void GoToApplication()
         {
-            throw new NotImplementedException();
+            Frame.Navigate(typeof(Applications));
+
         }
 
         public override void GoToCustomReport()

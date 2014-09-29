@@ -82,11 +82,23 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Page Include="Views\Applications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\CreateReportDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,7 +113,14 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\WindowsPhoneAppManager.cs" />
+    <Compile Include="Views\Applications.xaml.cs">
+      <DependentUpon>Applications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\CreateReportDialog.xaml.cs">
+      <DependentUpon>CreateReportDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Converters\DoubleToPercentageConverter.cs" />
+    <Compile Include="Views\Converters\MobfoxAppToImageConverter.cs" />
     <Compile Include="Views\Converters\MonetaryValueToStringConverter.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -111,6 +130,9 @@
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -118,7 +140,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icons\CreateReport.png" />
     <Content Include="Assets\Images\mobfoxlogo.png" />
+    <Content Include="Assets\Images\Platforms\Android.png" />
+    <Content Include="Assets\Images\Platforms\iOs.png" />
+    <Content Include="Assets\Images\Platforms\WindowsPhone.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />
@@ -127,11 +153,6 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Common\ReadMe.txt" />
     <Content Include="README_FIRST.txt" />
-    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -211,6 +232,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

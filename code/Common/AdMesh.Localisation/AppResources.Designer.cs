@@ -224,6 +224,15 @@ namespace AdMesh.Localisation {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report.
+        /// </summary>
+        public static string App_Report {
+            get {
+                return ResourceManager.GetString("App_Report", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reports.
         /// </summary>
         public static string App_Reports {

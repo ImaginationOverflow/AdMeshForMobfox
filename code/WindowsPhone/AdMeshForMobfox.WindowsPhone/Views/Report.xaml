@@ -1,0 +1,108 @@
+﻿<local:BasePage
+    x:Class="AdMeshForMobfox.WindowsPhone.Views.Report"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdMeshForMobfox.WindowsPhone.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding Report, Source={StaticResource Locator}}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TitlePanel -->
+        <Grid Grid.Row="0" Margin="0 -1 0 0" Background="{StaticResource AccentBrush}"/>
+        <StackPanel Grid.Row="0" Margin="24,6,0,6" >
+            <TextBlock Foreground="White" Text= "{Binding Path=Strings.App_Report, Source={StaticResource Strings}}" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid.Resources>
+                <Style TargetType="StackPanel">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </Grid.Resources>
+            
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.Background >
+                    <SolidColorBrush Color="{StaticResource AccentColor}" Opacity="0.1"></SolidColorBrush>
+                </Grid.Background>
+
+                <StackPanel  >
+                    <TextBlock Text= "{Binding Path=Strings.App_Revenue, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                    <TextBlock Text= "{Binding Report.Earnings, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <StackPanel  >
+                    <TextBlock Text= "{Binding Path=Strings.Ads_Impressions, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                    <TextBlock Text= "{Binding Report.Impressions}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <StackPanel  >
+                    <TextBlock Text= "{Binding Path=Strings.Ads_Ctr, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                    <TextBlock Text= "{Binding Report.Ctr, Converter={StaticResource DoubleToPercentageConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.Background >
+                    <SolidColorBrush Color="{StaticResource AccentColor}" Opacity="0.1"></SolidColorBrush>
+                </Grid.Background>
+                <StackPanel  >
+                    <TextBlock Text= "{Binding Path=Strings.Ads_Ecpm, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                    <TextBlock Text= "{Binding Report.Ecpm, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.Background >
+                    <SolidColorBrush Color="{StaticResource AccentColor}" Opacity="0.1"></SolidColorBrush>
+                </Grid.Background>
+                <StackPanel  >
+                    <TextBlock Text= "{Binding Path=Strings.Ads_AverageCpc, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                    <TextBlock Text= "{Binding Report.AverageCpc, Converter={StaticResource MonetaryValueToStringConverter}}" Style="{StaticResource ReportValueTextblockStyle}"/>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="1">
+                <StackPanel  >
+                    <TextBlock Text= "{Binding Path=Strings.Ads_Clicks, Source={StaticResource Strings}}" Style="{StaticResource ReportLabelTextblockStyle}"/>
+                    <TextBlock Text= "{Binding Report.Clicks}" Style="{StaticResource ReportValueTextblockStyle}"/>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</local:BasePage>
