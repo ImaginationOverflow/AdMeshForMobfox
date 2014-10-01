@@ -9,48 +9,51 @@
     xmlns:converters1="using:AdMeshForMobfox.WindowsPhone.Views.Converters"
      
     RequestedTheme="Light">
-    
+
     <Application.Resources>
-        <Color x:Key="AccentColor">#15518d</Color>
-        <Color x:Key="CtaColor">#ff4d40</Color>
-        <Color x:Key="GrayColor">#b0b0b0</Color>
-        <Color x:Key="SystemColorControlAccentColor">#15518d</Color>
+        <ResourceDictionary>
+            <localisation:AppResourcesContainer x:Key="Strings"/>
+            <Color x:Key="AccentColor">#15518d</Color>
+            <Color x:Key="CtaColor">#ff4d40</Color>
+            <Color x:Key="GrayColor">#b0b0b0</Color>
+            <Color x:Key="SystemColorControlAccentColor">#15518d</Color>
 
-        <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{StaticResource AccentColor}"/>
-
-
-
-        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
-        <SolidColorBrush x:Key="CtaBrush" Color="{StaticResource CtaColor}"/>
-        <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}"/>
-        
-        <viewModel:ViewModelManager x:Key="Locator"/>
-        <localisation:AppResourcesContainer x:Key="Strings"/>
+            <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{StaticResource AccentColor}"/>
 
 
-        <converters:ToLowerConverter x:Key="ToLowerConverter" />
-        <converters1:DoubleToPercentageConverter x:Key="DoubleToPercentageConverter" />
-        <converters1:MonetaryValueToStringConverter x:Key="MonetaryValueToStringConverter" />
-        <converters1:MobfoxAppToImageConverter x:Key="MobfoxAppToImageConverter" />
+
+            <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+            <SolidColorBrush x:Key="CtaBrush" Color="{StaticResource CtaColor}"/>
+            <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}"/>
+
+            <viewModel:ViewModelManager x:Key="Locator"/>
 
 
-        <Style x:Key="LabelTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="{StaticResource TextStyleMediumFontSize}"/>
-        </Style>
+            <converters:ToLowerConverter x:Key="ToLowerConverter" />
+            <converters1:DoubleToPercentageConverter x:Key="DoubleToPercentageConverter" />
+            <converters1:MonetaryValueToStringConverter x:Key="MonetaryValueToStringConverter" />
+            <converters1:MobfoxAppToImageConverter x:Key="MobfoxAppToImageConverter" />
 
-        <Style x:Key="ReportLabelTextblockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
-            <Setter Property="Foreground" Value="{StaticResource GrayBrush}"/>
-            <Setter Property="FontWeight" Value="ExtraLight"/>
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-        <Style x:Key="ReportValueTextblockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontWeight" Value="SemiLight"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="Foreground" Value="Black"/>
-        </Style>
+
+            <Style x:Key="LabelTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="{StaticResource TextStyleMediumFontSize}"/>
+            </Style>
+
+            <Style x:Key="ReportLabelTextblockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
+                <Setter Property="Foreground" Value="{StaticResource GrayBrush}"/>
+                <Setter Property="FontWeight" Value="ExtraLight"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="ReportValueTextblockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="FontWeight" Value="SemiLight"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Style>
+        </ResourceDictionary>
+
     </Application.Resources>
 
 </Application>

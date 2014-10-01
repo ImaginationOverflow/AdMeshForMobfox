@@ -11,6 +11,7 @@
     xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:ui="using:Microsoft.Advertising.Mobile.UI"
 
     mc:Ignorable="d"
     DataContext="{Binding Home, Source={StaticResource Locator}}"
@@ -109,6 +110,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition MinHeight="300" Height="auto"/>
                         </Grid.RowDefinitions>
                         <Grid.Resources>
@@ -117,7 +119,12 @@
                                 <Setter Property="Margin" Value="0 0 0 12"></Setter>
                             </Style>
                         </Grid.Resources>
-                        <Grid Tapped="Vibrate" Grid.Row="0" primitives1:Tilt.IsTiltEnabled="True">
+                        <ui:AdControl
+                            
+                            AdUnitId="10863150"
+                            ApplicationId="a9b91a28-09fb-46fb-b74b-3614b311992b"
+                            />
+                        <Grid Tapped="Vibrate" Grid.Row="1" primitives1:Tilt.IsTiltEnabled="True">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -165,7 +172,7 @@
 
                         </Grid>
 
-                        <Grid Grid.Row="1">
+                        <Grid Grid.Row="2">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -227,7 +234,7 @@
 
                         </Grid>
 
-                        <Grid Grid.Row="2">
+                        <Grid Grid.Row="3">
                             <charting:Chart
                                 
                             x:Name="AreaChart"
@@ -268,7 +275,8 @@
       
                 Header= "{Binding Path=Strings.Sidebar_Applications, Source={StaticResource Strings}}"
                 >
-                <ListView ItemsSource="{Binding ApplicationsController.Applications}" SelectionChanged="OnItemClicked">
+
+                <ListView Grid.Row="1" ItemsSource="{Binding ApplicationsController.Applications}" SelectionChanged="OnItemClicked">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0 0 0 12">
@@ -289,6 +297,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
+
             </PivotItem>
         </Pivot>
     </Grid>
@@ -304,7 +313,7 @@
 
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label= "{Binding Path=Strings.App_About, Source={StaticResource Strings}}" Command="{Binding AppNavigationService.GoToAboutCommand}" />
-                <AppBarButton Label= "{Binding Path=Strings.Sidebar_Rate, Source={StaticResource Strings}}" />
+                <AppBarButton Label= "{Binding Path=Strings.Sidebar_Rate, Source={StaticResource Strings}}" Click="RateApp" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

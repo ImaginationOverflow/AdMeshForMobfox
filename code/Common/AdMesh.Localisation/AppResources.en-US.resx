@@ -117,7 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Ads_AverageCpc" xml:space="preserve">
+    <value>average cpc</value>
+  </data>
+  <data name="Ads_Clicks" xml:space="preserve">
+    <value>clicks</value>
+  </data>
+  <data name="Ads_Ctr" xml:space="preserve">
+    <value>ctr</value>
+  </data>
+  <data name="Ads_Ecpm" xml:space="preserve">
+    <value>ecpm</value>
+  </data>
+  <data name="Ads_Impressions" xml:space="preserve">
+    <value>impressions</value>
+  </data>
+  <data name="App_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="App_Close" xml:space="preserve">
+    <value>close</value>
+  </data>
+  <data name="App_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="App_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="App_LastMonth" xml:space="preserve">
+    <value>last month</value>
+  </data>
+  <data name="App_LastWeek" xml:space="preserve">
+    <value>last week</value>
+  </data>
+  <data name="App_Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
   <data name="App_Login" xml:space="preserve">
-    <value>Autenticar</value>
+    <value>Login</value>
+  </data>
+  <data name="App_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="App_Open" xml:space="preserve">
+    <value>open</value>
+  </data>
+  <data name="App_Overall" xml:space="preserve">
+    <value>overall</value>
+  </data>
+  <data name="App_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="App_Refresh" xml:space="preserve">
+    <value>refresh</value>
+  </data>
+  <data name="App_Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="App_Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="App_Revenue" xml:space="preserve">
+    <value>revenue</value>
+  </data>
+  <data name="App_ThisMonth" xml:space="preserve">
+    <value>this month</value>
+  </data>
+  <data name="App_ThisWeek" xml:space="preserve">
+    <value>this week</value>
+  </data>
+  <data name="App_Today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="App_Yesterday" xml:space="preserve">
+    <value>yesterday</value>
+  </data>
+  <data name="Custom_Report_App" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="Custom_Report_EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="Custom_Report_IsOverall" xml:space="preserve">
+    <value>All time report</value>
+  </data>
+  <data name="Custom_Report_SeeReport" xml:space="preserve">
+    <value>See report</value>
+  </data>
+  <data name="Custom_Report_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Error_NoConnection" xml:space="preserve">
+    <value>No internet connection.</value>
+  </data>
+  <data name="Error_NoReport" xml:space="preserve">
+    <value>No Report available.</value>
+  </data>
+  <data name="Error_UnknownError" xml:space="preserve">
+    <value>An unknown error occured.</value>
+  </data>
+  <data name="Home_LoadingDashboard" xml:space="preserve">
+    <value>Loading dashboard</value>
+  </data>
+  <data name="Home_TodaysRevenue" xml:space="preserve">
+    <value>Revenue today</value>
+  </data>
+  <data name="Login_Form_Data_Incorrect" xml:space="preserve">
+    <value>Please enter a valid email and password.</value>
+  </data>
+  <data name="Sidebar_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Sidebar_Applications" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="Sidebar_CustomReport" xml:space="preserve">
+    <value>Custom Report</value>
+  </data>
+  <data name="Sidebar_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Sidebar_Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Sidebar_Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Sidebar_Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

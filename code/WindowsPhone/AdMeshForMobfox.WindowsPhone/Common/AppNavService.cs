@@ -46,7 +46,7 @@ namespace AdMeshForMobfox.WindowsPhone.Common
 
         public override void GoToAbout()
         {
-            throw new NotImplementedException();
+            Frame.Navigate(typeof (About));
         }
     }
 }

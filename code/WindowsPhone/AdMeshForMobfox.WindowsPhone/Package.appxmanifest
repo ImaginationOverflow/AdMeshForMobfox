@@ -1,42 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-
-  <Identity Name="694b2fa1-03f0-489f-ba9d-913939fb1ee0"
-            Publisher="CN=Diogo"
-            Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="694b2fa1-03f0-489f-ba9d-913939fb1ee0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+  <Identity Name="8607ImaginationOverflow.AdMeshforMobfox" Publisher="CN=866E013D-85B9-4D89-A924-D3FE3FE42727" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="ba213c5f-b2ba-49ae-a232-45481c6f4637" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>AdMeshForMobfox.WindowsPhone</DisplayName>
-    <PublisherDisplayName>Diogo</PublisherDisplayName>
+    <DisplayName>AdMesh for Mobfox</DisplayName>
+    <PublisherDisplayName>ImaginationOverflow</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.1</OSMinVersion>
     <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
   </Prerequisites>
-  
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="AdMeshForMobfox.WindowsPhone.App">
-        <m3:VisualElements
-            DisplayName="AdMeshForMobfox.WindowsPhone"
-            Square150x150Logo="Assets\Logo.png"
-            Square44x44Logo="Assets\SmallLogo.png"
-            Description="AdMeshForMobfox.WindowsPhone"
-            ForegroundText="light"
-            BackgroundColor="transparent">
-            <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"/>
-            <m3:SplashScreen Image="Assets\SplashScreen.png"/>
-            <m3:ApplicationView MinWidth="width320"/> <!--Used in XAML Designer. DO NOT REMOVE-->
-        </m3:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AdMeshForMobfox.WindowsPhone.App">
+      <m3:VisualElements DisplayName="AdMesh for Mobfox" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="AdMeshForMobfox.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
+        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+      </m3:VisualElements>
     </Application>
   </Applications>
   <Capabilities>

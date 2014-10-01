@@ -34,7 +34,7 @@
 
 
             <StackPanel Grid.Row="0" >
-                <TextBlock  Text= "{Binding Path=Strings.App_Email, Source={StaticResource Strings}, Converter={StaticResource ToLowerConverter}}" Style="{StaticResource LabelTextStyle}"/>
+                <TextBlock  Text= "{Binding  Path=Strings.App_Email, Source={StaticResource Strings}, Converter={StaticResource ToLowerConverter}}" Style="{StaticResource LabelTextStyle}"/>
                 <TextBox Text="{Binding Email, Mode=TwoWay}" Margin="0 3 0 0" />
             </StackPanel>
 

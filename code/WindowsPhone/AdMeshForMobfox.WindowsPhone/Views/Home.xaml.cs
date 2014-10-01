@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Resources;
 using Windows.Phone.Devices.Notification;
+using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -130,6 +132,11 @@ namespace AdMeshForMobfox.WindowsPhone.Views
         private async void AddAppBasdarButton_OnClick(object sender, RoutedEventArgs e)
         {
             new CreateReportDialog().ShowAsync();
+        }
+
+        private void RateApp(object sender, RoutedEventArgs e)
+        {
+            Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + Package.Current.Id.Name));
         }
     }
 }

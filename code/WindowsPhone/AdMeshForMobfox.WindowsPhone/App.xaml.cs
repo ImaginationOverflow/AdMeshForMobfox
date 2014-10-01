@@ -1,4 +1,6 @@
-﻿using AdMeshForMobfox.WindowsPhone.Common;
+﻿using System.Globalization;
+using AdMesh.Localisation;
+using AdMeshForMobfox.WindowsPhone.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,6 +55,7 @@ namespace AdMeshForMobfox.WindowsPhone
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+            UnhandledException += App_UnhandledException;
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -109,13 +112,36 @@ namespace AdMeshForMobfox.WindowsPhone
 
                 rootFrame.ContentTransitions = null;
                 rootFrame.Navigated += this.RootFrame_FirstNavigated;
-
+                try
+                {
+                    //var culture = AppResources.Culture;
+                    //var manager = AppResources.ResourceManager;
+                    //manager.GetString("Ads_AverageCpc", new CultureInfo("en-US"));
+                    //var cenas = new CultureInfo(culture.DisplayName);
+                    //var coisas = cenas;
+                }
+                catch (Exception ee)
+                {
+                    var container = this.Resources["Strings"] as AppResourcesContainer;
+                    var xpto = container.Strings;
+                    throw ee;
+                }
+                
+              
+                
                 _appManager.Start();
 
             }
 
+
+
             // Ensure the current window is active.
             Window.Current.Activate();
+        }
+
+        void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+
         }
 
         /// <summary>

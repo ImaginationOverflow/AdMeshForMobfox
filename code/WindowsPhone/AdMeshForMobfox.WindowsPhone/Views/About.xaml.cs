@@ -1,8 +1,4 @@
-﻿using System.Reflection;
-using System.Resources;
-using Windows.UI.Popups;
-using AdMesh.Localisation;
-using AdMeshForMobfox.WindowsPhone.Common;
+﻿using AdMeshForMobfox.WindowsPhone.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,21 +23,19 @@ namespace AdMeshForMobfox.WindowsPhone.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Login : BasePage
+    public sealed partial class About : BasePage
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        public Login()
-            : base(true)
+        public About() : base(true)
         {
-                this.InitializeComponent();
+            this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
         }
-
 
         /// <summary>
         /// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.
@@ -111,8 +105,6 @@ namespace AdMeshForMobfox.WindowsPhone.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedFrom(e);
-            if (e.NavigationMode == NavigationMode.New)
-                Frame.BackStack.Remove(Frame.BackStack.First());
         }
 
         #endregion
