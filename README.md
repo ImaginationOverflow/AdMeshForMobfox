@@ -4,7 +4,7 @@ My first take on Xamarin, my goal here was to map all my knowledge on building a
 
 **Download links:**
  - [Play Store](https://play.google.com/store/apps/details?id=com.imaginationoverflow.admesh.mobfox)
- - Windows Phone Store (coming very soon)
+ - [Windows Phone Store](http://www.windowsphone.com/s?appid=378f98a3-3350-450d-a41d-d565eb35e16f)
 
 
  
