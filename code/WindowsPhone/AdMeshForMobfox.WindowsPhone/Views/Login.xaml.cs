@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Resources;
+using Windows.Globalization;
 using Windows.UI.Popups;
 using AdMesh.Localisation;
 using AdMeshForMobfox.WindowsPhone.Common;
@@ -35,11 +36,24 @@ namespace AdMeshForMobfox.WindowsPhone.Views
         public Login()
             : base(true)
         {
-                this.InitializeComponent();
 
+            this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        private async void Show(Exception exception)
+        {
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                exception = e;
+            }
+
+            await new MessageDialog(exception.ToString()).ShowAsync();
         }
 
 

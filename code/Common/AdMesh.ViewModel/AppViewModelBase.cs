@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AdMesh.Localisation;
+using AdMesh.Localisation;
 using GalaSoft.MvvmLight;
 using IOToolkit.Messaging;
 using IOToolkit.ObjectModel;

@@ -9,11 +9,11 @@ namespace AdMesh.Localisation
 {
     public class AppResourcesContainer
     {
-        public AppResources Strings { get; private set; }
+        private static readonly AppResources Resources = new AppResources();
+        public AppResources Strings { get { return Resources; } }
 
         public AppResourcesContainer()
         {
-            Strings = new AppResources();
         }
     }
 }

@@ -267,7 +267,7 @@ namespace AdMeshForMobfox.Android.Fragments
 
         private Series GetData()
         {
-            var accentColor = Resources.GetColor(Resource.Color.app_accent_color);
+            var accentColor = AppResources.GetColor(Resource.Color.app_accent_color);
             var areaSeries1 = new AreaSeries();
             {
 

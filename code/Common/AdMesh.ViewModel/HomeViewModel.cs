@@ -7,6 +7,7 @@ using System.Windows.Input;
 using AdMesh.Common;
 using AdMesh.Controllers;
 using AdMesh.Localisation;
+using AdMesh.Localisation;
 using AdMesh.Service.MobFox.Data;
 using AdMesh.ViewModel.Messages;
 using IOToolkit.Helpers;
@@ -42,6 +43,7 @@ namespace AdMesh.ViewModel
                     ?? (_refreshCommand = CreateCommand(
                         () =>
                         {
+
                             var dashboardTask = ReportsController.RefreshDashboardAsync();
                             var appsTask = ApplicationsController.LoadApplicationsAsync();
 

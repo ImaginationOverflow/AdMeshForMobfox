@@ -72,7 +72,7 @@
       <Name>AdMesh.Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\AdMesh.Localisation\AdMesh.Localisation.csproj">
-      <Project>{f3d7847a-b2dc-4cbe-8b94-c1246e4d2eed}</Project>
+      <Project>{2bbb8033-0b37-446d-82df-e2d5b71dd085}</Project>
       <Name>AdMesh.Localisation</Name>
     </ProjectReference>
     <ProjectReference Include="..\AdMesh.Service.MobFox\AdMesh.Service.MobFox\AdMesh.Service.MobFox.csproj">

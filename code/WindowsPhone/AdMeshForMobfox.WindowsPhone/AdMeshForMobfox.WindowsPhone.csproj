@@ -112,6 +112,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\WindowsPhoneAppManager.cs" />
+    <Compile Include="Common\WindowsRuntimeResourceManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -230,7 +231,7 @@
       <Name>AdMesh.Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\AdMesh.Localisation\AdMesh.Localisation.csproj">
-      <Project>{f3d7847a-b2dc-4cbe-8b94-c1246e4d2eed}</Project>
+      <Project>{2bbb8033-0b37-446d-82df-e2d5b71dd085}</Project>
       <Name>AdMesh.Localisation</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\AdMesh.Service.MobFox\AdMesh.Service.MobFox\AdMesh.Service.MobFox.csproj">
@@ -262,6 +263,7 @@
       <Name>Microsoft Advertising SDK for Windows Phone 8.1 %28XAML%29</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

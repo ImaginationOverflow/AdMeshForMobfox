@@ -1,4 +1,7 @@
 ﻿using System.Globalization;
+using System.Reflection;
+using System.Threading.Tasks;
+using Windows.Networking.Sockets;
 using AdMesh.Localisation;
 using AdMeshForMobfox.WindowsPhone.Common;
 using System;
@@ -56,7 +59,10 @@ namespace AdMeshForMobfox.WindowsPhone
             }
 #endif
             UnhandledException += App_UnhandledException;
-
+            var type = typeof (WinRTXamlToolkit.Controls.DataVisualization.Legend).GetTypeInfo()
+                .Assembly.GetType("WinRTXamlToolkit.Controls.DataVisualization.Properties.Resources");
+            WindowsRuntimeResourceManager.InjectIntoResxGeneratedApplicationResourcesClass(typeof(AppResources));
+            WindowsRuntimeResourceManager.InjectIntoResxGeneratedApplicationResourcesClass(type);
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -66,6 +72,7 @@ namespace AdMeshForMobfox.WindowsPhone
                 _appManager.PreInitialize();
                 // Create a Frame to act as the navigation context and navigate to the first page.
                 rootFrame = new Frame();
+
 
                 // Associate the frame with a SuspensionManager key.
                 SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
@@ -112,22 +119,7 @@ namespace AdMeshForMobfox.WindowsPhone
 
                 rootFrame.ContentTransitions = null;
                 rootFrame.Navigated += this.RootFrame_FirstNavigated;
-                try
-                {
-                    //var culture = AppResources.Culture;
-                    //var manager = AppResources.ResourceManager;
-                    //manager.GetString("Ads_AverageCpc", new CultureInfo("en-US"));
-                    //var cenas = new CultureInfo(culture.DisplayName);
-                    //var coisas = cenas;
-                }
-                catch (Exception ee)
-                {
-                    var container = this.Resources["Strings"] as AppResourcesContainer;
-                    var xpto = container.Strings;
-                    throw ee;
-                }
-                
-              
+               
                 
                 _appManager.Start();
 

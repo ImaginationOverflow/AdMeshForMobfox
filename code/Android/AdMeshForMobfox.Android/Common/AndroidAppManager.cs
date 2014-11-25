@@ -37,7 +37,7 @@ namespace AdMeshForMobfox.Android.Common
                     new UiResources
                     {
                         AccentColor =
-                            "#" + _mainActivity.Resources.GetColor(Resource.Color.app_accent_color).ToArgb().ToString("X")
+                            "#" + _mainActivity.AppResources.GetColor(Resource.Color.app_accent_color).ToArgb().ToString("X")
                     });
             SimpleIoc.Default.Register<IAppNavigationService>(() => new AppNavigationService(_mainActivity));
             Configurator.Configure();

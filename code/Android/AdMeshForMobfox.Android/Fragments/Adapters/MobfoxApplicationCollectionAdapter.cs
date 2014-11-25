@@ -34,7 +34,7 @@ namespace AdMeshForMobfox.Android.Fragments.Adapters
 
             var element = Collection[position];
 
-            image.SetImageDrawable(base.Context.Resources.GetDrawable(element.GetPlatformImageId()));
+            image.SetImageDrawable(base.Context.AppResources.GetDrawable(element.GetPlatformImageId()));
             text.Text = element.Name;
 
             return view;

@@ -41,7 +41,7 @@ namespace AdMeshForMobfox.Android.Fragments
             var email = view.FindViewById<EditText>(Resource.Id.login_email);
             var pwd = view.FindViewById<EditText>(Resource.Id.login_password);
 
-            button.SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.login_btn_selector));
+            button.SetBackgroundDrawable(AppResources.GetDrawable(Resource.Drawable.login_btn_selector));
             button.Click +=  (s, a) =>
             {
                 ViewModel.Email = email.Text;

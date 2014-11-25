@@ -98,9 +98,6 @@
     <Reference Include="IOToolkit">
       <HintPath>..\..\..\external\libs\Common\IOToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="IOToolkit.WindowsPhone">
-      <HintPath>..\..\..\external\libs\WindowsPhone\IOToolkit.WindowsPhone.dll</HintPath>
-    </Reference>
     <Reference Include="IOToolkit.WinRt">
       <HintPath>..\..\..\external\libs\WinRt\IOToolkit.WinRt.dll</HintPath>
     </Reference>
@@ -116,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\AdMesh.Localisation\AdMesh.Localisation.csproj">
-      <Project>{f3d7847a-b2dc-4cbe-8b94-c1246e4d2eed}</Project>
+      <Project>{2bbb8033-0b37-446d-82df-e2d5b71dd085}</Project>
       <Name>AdMesh.Localisation</Name>
     </ProjectReference>
   </ItemGroup>
